@@ -156,3 +156,55 @@ If it successful you should see a json payload return that looks like this:
 }
 ```
 We'll need to generate AWS CLI credits from IAM User in order to use AWS CLI.
+
+# Terraform Basic 
+
+### Terraform Registry 
+
+Terraform sources their providers and modules form the Terraform registry which is located at [registry.terraform.io](https://registry.terraform.io/)
+
+- **Providers** is an interface to API's that will allow you to create resources in Terrafrom. 
+- **Modules** are a way to make large amounts of Terraform code, modular, portable, and shareable. 
+
+[Random Terrafrom Provider](https://registry.terraform.io/providers/hashicorp/random/latest)
+
+### Terrafrom Console 
+
+We can see a list of all the Terraform commands by simply typing `terraform`
+
+#### Terraform Init 
+
+ At the start of a new Terraform project we will run `terrafrom init` to download the binaries for the terrafrom providers that we'll use in this project. 
+
+
+#### Terraform Plan 
+
+This will generate out a changeset, about the state of our infrastructure and what will be changed. 
+
+We can output this changeset ie. "plan" to be passed to an apply, but often you can just ignore the outputting. 
+
+#### Terraform Plan 
+
+`terraform apply`
+
+This will run a plan and pass the changeset to be executed by Terraform. Apply should prompt yes or no. 
+
+If we want to automatically approve and apply we can provide the auto approve flag eg. `terraform apply --auto-approve`
+
+### Terraform Lock Files 
+
+`.terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used with this project. 
+
+The Terraform Lock File **should be committed** to your Versioning Control System (VSC) eg. Github 
+
+### Terraform State Files 
+
+
+`.terraform.tfstate` contains information about the current state of your infrastructure. 
+
+This file **should not be committed** to your VCS. 
+
+This file can contain sensative data. 
+
+If you lose your file, you lose knowing the state of your infrastructure. 
+
