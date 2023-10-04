@@ -183,13 +183,22 @@ This will generate out a changeset, about the state of our infrastructure and wh
 
 We can output this changeset ie. "plan" to be passed to an apply, but often you can just ignore the outputting. 
 
-#### Terraform Plan 
+#### Terraform Apply
 
 `terraform apply`
 
 This will run a plan and pass the changeset to be executed by Terraform. Apply should prompt yes or no. 
 
 If we want to automatically approve and apply we can provide the auto approve flag eg. `terraform apply --auto-approve`
+
+#### Terraform Destroy 
+
+`terraform destroy`
+This will destroy resources 
+
+You can also use the the approve flag to automatically aply without being promted confirm the action
+
+`terraform destroy --auto-approve`
 
 ### Terraform Lock Files 
 
@@ -198,7 +207,6 @@ If we want to automatically approve and apply we can provide the auto approve fl
 The Terraform Lock File **should be committed** to your Versioning Control System (VSC) eg. Github 
 
 ### Terraform State Files 
-
 
 `.terraform.tfstate` contains information about the current state of your infrastructure. 
 
